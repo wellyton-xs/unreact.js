@@ -4,7 +4,7 @@ function debug(desc = "", arg){
     console.log("vof output", arg)
 }
 
-export function createElement(tag, child = "", attributes = {}){
+export function createElement(tag, child, attributes = {}){
     let newElement = document.createElement(tag)
     let content = document.createTextNode(child);
     
@@ -13,7 +13,7 @@ export function createElement(tag, child = "", attributes = {}){
             newElement.setAttribute(attr, attributes[attr]);
         });
     }
-
+    
     newElement.appendChild(content)
     return newElement
 };
@@ -28,30 +28,31 @@ export function updateDOM(element){
     document.body.insertBefore(element, root)
 }
 
-export function div(child){
-    let div = createElement("div", child)
-    let element = updateDOM(div)
-
+export function div(child, attr){
+    let element = createElement("div", child)
+    updateDOM(element)
+    
     return element
 }
 
 export function h1(child, attr){
-    let h1 = createElement("h1", child, attr)    
-    let element = updateDOM(h1)
+    let element = createElement("h1", child, attr)    
+    updateDOM(element)
     
     return element
 }
 
-export function p(child){
-    let p = createElement("p", child)
-    let element = updateDOM(p)
+export function p(child, attr){
+    let element = createElement("p", child, attr)
+    updateDOM(element)
     
     return element
 }
 
-export function a(child){
-    let a = createElement("a", child)
-    let element = updateDOM(a)
+export function a(child, attr){
+    let element = createElement("a", child, attr)
+    updateDOM(element)
     
     return element
 }
+
