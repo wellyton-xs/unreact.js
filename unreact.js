@@ -1,22 +1,41 @@
-function debug(desc = "", arg){
-    console.log(desc)
-    console.log("typeof:", typeof(arg))
-    console.log("vof output", arg)
+function debug(desc = "", ...args){
+    // why the fucking console out of the loop is in loop too?
+    console.log("+++++++ {init} +++++++")
+    for (const arg of args){
+	console.log(`
+        +++++++ {log} +++++++
+        ${desc}
+        ${arg}
+        +++++++ {endlog} +++++++
+        `)
+    }
+    console.log("+++++++ {end} +++++++")
 }
 
-export function createElement(tag, child, attributes = {}){
-    let newElement = document.createElement(tag)
-    let content = document.createTextNode(child);
-    
-    if (attributes) {
-        Object.keys(attributes).forEach(attr => {
-            newElement.setAttribute(attr, attributes[attr]);
-        });
+export function createElement(tag, ...children){
+    let element = document.createElement(tag)
+    debug("CreateElement fn: ", typeof(children), children, element)
+
+    for(const child of children) {
+	if (typeof child === 'string') {
+	    element.appendChild(document.createTextNode(child))
+	} else {
+	    element.appendChild(child)
+	}
     }
-    
-    newElement.appendChild(content)
-    return newElement
+
+    return element
 };
+
+export function setAtt(attributes = {}, element){
+    if (attributes) {
+	console.log(attributes)
+	Object.keys(attributes).forEach(attr => {
+	    element.setAttribute(attr, attributes[attr]);
+	    return element
+	});
+    }
+}
 
 export function printElement(tag){
     let element = createElement(tag);
@@ -28,31 +47,36 @@ export function updateDOM(element){
     document.body.insertBefore(element, root)
 }
 
-export function div(child, attr){
-    let element = createElement("div", child)
+export function root(){
+    
+}
+
+export function div(attr, ...children){
+    let element = createElement("div", ...children)
+    element.setAttr = setAtt(attr, element)
     updateDOM(element)
     
     return element
 }
 
-export function h1(child, attr){
-    let element = createElement("h1", child, attr)    
+export function h1(attr, ...children){
+    let element = createElement("h1", ...children)
     updateDOM(element)
     
     return element
 }
 
-export function p(child, attr){
-    let element = createElement("p", child, attr)
+export function p(attr, ...children){
+    let element = createElement("p", ...children)
     updateDOM(element)
     
     return element
 }
 
-export function a(child, attr){
-    let element = createElement("a", child, attr)
+export function a(attr, ...children){
+    let element = createElement("a", ...children)
+    element.setAttr = setAtt(attr, element)
     updateDOM(element)
     
     return element
 }
-
