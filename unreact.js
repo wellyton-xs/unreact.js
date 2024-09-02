@@ -1,81 +1,39 @@
-function debug(desc = "", ...args){
-    // why the fucking console out of the loop is in loop too?
-    console.log("+++++++ {init} +++++++")
-    for (const arg of args){
-	console.log(`
-        +++++++ {log} +++++++
-        ${desc}
-        ${arg}
-        +++++++ {endlog} +++++++
-        `)
-    }
-    console.log("+++++++ {end} +++++++")
-}
+import { createElement, updateDOM, setAtt, printElement, debug } from "./unreact-core.js"
 
-export function createElement(tag, ...children){
-    let element = document.createElement(tag)
-    debug("CreateElement fn: ", typeof(children), children, element)
-
-    for(const child of children) {
-	if (typeof child === 'string') {
-	    element.appendChild(document.createTextNode(child))
-	} else {
-	    element.appendChild(child)
-	}
-    }
-
-    return element
-};
-
-export function setAtt(attributes = {}, element){
-    if (attributes) {
-	console.log(attributes)
-	Object.keys(attributes).forEach(attr => {
-	    element.setAttribute(attr, attributes[attr]);
-	    return element
-	});
-    }
-}
-
-export function printElement(tag){
-    let element = createElement(tag);
-    console.log(element);
-}
-
-export function updateDOM(element){
-    const root = document.getElementById("#root")
-    document.body.insertBefore(element, root)
-}
-
-export function root(){
-    
-}
-
-export function div(attr, ...children){
+export function div(attr = {}, ...children){
     let element = createElement("div", ...children)
-    element.setAttr = setAtt(attr, element)
-    updateDOM(element)
-    
+    setAtt(attr, element)
+    updateDOM(element)    
     return element
 }
 
-export function h1(attr, ...children){
+export function h1(attr = {}, ...children){
     let element = createElement("h1", ...children)
+    setAtt(attr, element)
     updateDOM(element)
     
     return element
 }
 
-export function p(attr, ...children){
+export function p(attr = {}, ...children){
     let element = createElement("p", ...children)
+    setAtt(attr, element)
     updateDOM(element)
     
     return element
 }
 
-export function a(attr, ...children){
+export function a(attr = {}, ...children){
     let element = createElement("a", ...children)
-    element.setAttr = setAtt(attr, element)
+    setAtt(attr, element)
+    updateDOM(element)
+    
+    return element
+}
+
+export function input(attr = {}, ...children){
+    let element = createElement("input", ...children)
+    setAtt(attr, element)
     updateDOM(element)
     
     return element

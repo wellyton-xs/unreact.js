@@ -1,0 +1,24 @@
+{
+    "name": "unreact",
+    "version": "1.0.0",
+    "description": "simply unreact",
+    "main": "unreact.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wellyton-xs/unreact.js.git"
+    },
+    "keywords": [
+        "javascript",
+        "webdevelopment"
+    ],
+    "author": "Wellyton B. Galdino",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/wellyton-xs/unreact.js/issues"
+    },
+    "homepage": "https://github.com/wellyton-xs/unreact.js#readme"
+}
