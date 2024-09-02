@@ -10,9 +10,14 @@ export function createElement(tag, ...children){
     debug(typeof(children), children, element)
 
     for(const child of children) {
+	
+	if (typeof child === "object"){
+	    setAtt(child, element)
+	}
+	
 	if (typeof child === 'string') {
 	    element.appendChild(document.createTextNode(child))
-	} else {
+	} else if(child instanceof Node){
 	    element.appendChild(child)
 	}
     }
