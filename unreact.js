@@ -118,6 +118,13 @@ export function footer(...children){
     return element
 }
 
+export function h(_, ...children){
+    let element = createElement(`h${_}`, ...children)
+    updateDOM(element)
+
+    return element
+}
+
 export function h1(...children){
     let element = createElement("h1", ...children)
     updateDOM(element)
@@ -152,3 +159,11 @@ export function h5(...children){
 
     return element
 }
+
+export function button(...children){
+    let element = createElement("button", ...children)
+    updateDOM(element)
+
+    return element
+}
+
