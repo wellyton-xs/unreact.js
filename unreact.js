@@ -1,4 +1,4 @@
-import { createElement, updateDOM, setAtt, printElement, debug } from "./unreact-core.js"
+import { createElement, updateDOM, setAtt, printElement } from "./unreact-core.js"
 
 export function div(...children){
     let element = createElement("div", ...children)

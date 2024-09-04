@@ -1,13 +1,5 @@
-export function debug(desc = "", ...args){
-    console.log(desc)
-    for (const arg of args){
-	console.log(arg)
-    }
-}
-
 export function createElement(tag, ...children){
     let element = document.createElement(tag)
-    debug("CreateElement function", typeof(children), children, element)
 
     for(const child of children) {
 	
@@ -27,7 +19,6 @@ export function createElement(tag, ...children){
 
 export function setAtt(attributes = {}, element){
     if (attributes) {
-	console.log(attributes)
 	Object.keys(attributes).forEach(attr => {
 	    element.setAttribute(attr, attributes[attr]);
 	    return element
