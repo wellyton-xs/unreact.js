@@ -7,7 +7,7 @@ export function debug(desc = "", ...args){
 
 export function createElement(tag, ...children){
     let element = document.createElement(tag)
-    debug(typeof(children), children, element)
+    debug("CreateElement function", typeof(children), children, element)
 
     for(const child of children) {
 	
@@ -21,7 +21,7 @@ export function createElement(tag, ...children){
 	    element.appendChild(child)
 	}
     }
-
+    
     return element
 };
 
