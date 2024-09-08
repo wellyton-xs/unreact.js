@@ -42,7 +42,7 @@ async function sendFile(fileToSend, req, res){
 function setupUnreactDirectory() {
     const unreactPath = path.join(process.cwd(), '.unreact');
 
-    const frameworkFiles = ['unreact-core.js', 'unreact.js', 'unreact.css'];
+    const frameworkFiles = ['unreact-core.js', 'unreact.js'];
     const frameworkSourcePath = path.join(__dirname, 'core'); // Pasta do framework
 
     if (!fs.existsSync(unreactPath)) {
