@@ -4,6 +4,9 @@
     "description": "simply unreact",
     "main": "unreact.js",
     "type": "module",
+    "bin": {
+	"unreact": "./cli.js"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
