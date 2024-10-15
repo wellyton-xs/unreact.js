@@ -2,7 +2,7 @@
     "name": "unreact.js",
     "version": "1.0.0",
     "description": "simply unreact",
-    "main": "unreact.js",
+    "main": "cli.js",
     "type": "module",
     "bin": {
 	"unreact": "./cli.js"

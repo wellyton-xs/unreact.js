@@ -30,6 +30,8 @@ function section_component(...children){
     return elements
 }
 
+
+
 main(
     h(1, "Main title"),
     p({id: "Introduction"},
